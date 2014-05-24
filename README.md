@@ -1,4 +1,4 @@
-# addHooks [![Build Status](https://secure.travis-ci.org/THEtheChad/addHooks.png?branch=master)](http://travis-ci.org/THEtheChad/addHooks)
+# addHooks
 
 A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
 
