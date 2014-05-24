@@ -73,7 +73,7 @@ module.exports = function(grunt) {
             src: 'addHooks.js', 
             dest: 'doc'
         }
-    }
+    },
 
     githubPages: {
       target: {
