@@ -1,17 +1,23 @@
 # addHooks [![Build Status](https://secure.travis-ci.org/THEtheChad/addHooks.png?branch=master)](http://travis-ci.org/THEtheChad/addHooks)
 
-A A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
+A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
 
 ## Getting Started
 Install the module with: `npm install addHooks`
 
 ```javascript
-var addHooks = require('addHooks');
-addHooks.awesome(); // "awesome"
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
+```
+**OR**
+
+```javascript
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); };
+
+myAwesomeFunction = myAwesomeFunction.addHooks();
 ```
 
 ## Documentation
-_(Coming soon)_
+[Full API Documentation](http://https://github.com/THEtheChad/addHooks/doc/index.html)
 
 ## Examples
 _(Coming soon)_
