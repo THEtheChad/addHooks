@@ -1,12 +1,11 @@
-/*! addHooks - v0.1.0 - 2014-05-23 */
 /**
+ * @package addHooks
  * @author  THEtheChad
  * @license MIT
  * @version 0.1.0
+ * @published 2014-05-23
  * @fileOverview A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
- */
-
-// 'use strict';
+ */'use strict';
 
 /**
  * The built in Function object.
@@ -37,13 +36,17 @@ Function.prototype.addHooks = function() {
 
 		args = Array.prototype.slice.call(arguments);
 
+		/*jshint validthis:true */
 		hook.fire('before', this, args, response);
+		/*jshint validthis:true */
 		args = hook.fire('modInput', this, args, args);
 
 		// call the actual function
 		response = self.apply(this, args);
 
+		/*jshint validthis:true */
 		response = hook.fire('modOutput', this, response, response);
+		/*jshint validthis:true */
 		hook.fire('after', this, args, response);
 
 		return response;

@@ -45,15 +45,17 @@ module.exports = function(grunt) {
       options: {
         separator: ';',
         stripBanners: true,
-        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-          '<%= grunt.template.today("yyyy-mm-dd") %> */\n' +
-          '/**\n' +
-          ' * @author  <%= pkg.author.name %>\n' +
-          ' * @license <%= pkg.licenses[0].type %>\n' +
-          ' * @version <%= pkg.version %>\n' +
-          ' * @fileOverview <%= pkg.description %>\n' +
-          ' */\n' +
-          '\n',
+        banner: 
+          [
+            '/**',
+            ' * @package <%= pkg.name %>',
+            ' * @author  <%= pkg.author.name %>',
+            ' * @license <%= pkg.licenses[0].type %>',
+            ' * @version <%= pkg.version %>',
+            ' * @published <%= grunt.template.today("yyyy-mm-dd") %>',
+            ' * @fileOverview <%= pkg.description %>',
+            ' */'
+          ].join('\n')
       },
       dist: {
         src: ['lib/**/*.js'],
@@ -61,18 +63,21 @@ module.exports = function(grunt) {
       },
     },
 
-    uglify : {
-        js: {
-          src: 'addHooks.js',
-          dest: 'addHooks.min.js',
-        }
+    uglify: {
+      options: {
+        preserveComments: 'some'
+      },
+      js: {
+        src: 'addHooks.js',
+        dest: 'addHooks.min.js',
+      }
     },
 
-    jsdoc : {
-        dist : {
-            src: 'addHooks.js', 
-            dest: 'doc'
-        }
+    jsdoc: {
+      dist: {
+        src: 'addHooks.js',
+        dest: 'docs'
+      }
     },
 
     githubPages: {
@@ -82,7 +87,7 @@ module.exports = function(grunt) {
           commitMessage: 'push'
         },
         // The folder where your gh-pages repo is
-        src: 'doc'
+        src: 'docs'
       }
     }
   });
