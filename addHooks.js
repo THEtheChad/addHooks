@@ -15,16 +15,10 @@
  */
 
 /**
- * A function that wraps the original function and
- * and includes a hooking api.
- * @typedef {external:Function#addHooks~hook} hook
- */
-
-/**
  * This method returns a hookable copy of the
  * original function.
  * @function external:Function#addHooks
- * @return {hook} Function with hook API
+ * @return {external:Function#addHooks~hook} Function with hook API
  */
 Function.prototype.addHooks = function() {
 	var self = this;
