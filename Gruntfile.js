@@ -74,6 +74,17 @@ module.exports = function(grunt) {
             dest: 'doc'
         }
     }
+
+    githubPages: {
+      target: {
+        options: {
+          // The default commit message for the gh-pages branch
+          commitMessage: 'push'
+        },
+        // The folder where your gh-pages repo is
+        src: 'doc'
+      }
+    }
   });
 
   // These plugins provide necessary tasks.
@@ -84,6 +95,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsdoc');
 
-  // Default task.
+  // Tasks
   grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify', 'jsdoc']);
+  grunt.registerTask('deploy', ['githubPages:target']);
 };
