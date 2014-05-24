@@ -86,10 +86,4 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'nodeunit', 'concat', 'uglify', 'jsdoc']);
-
-  grunt.registerTask('jsdox', function(){
-    var jsdox = require('jsdox');
-
-    jsdox.generateForDir('addHooks.js', 'md', function(){});
-  });
 };
