@@ -1,0 +1,42 @@
+{
+  "name": "addHooks",
+  "description": "A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/THEtheChad/addHooks",
+  "author": {
+    "name": "THEtheChad",
+    "email": "chad.d.elliott@gmail.com",
+    "url": "http://thethechad.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/THEtheChad/addHooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/THEtheChad/addHooks/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/THEtheChad/addHooks/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/addHooks",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-jsdoc": "^0.5.4",
+    "jsdox": "^0.2.8"
+  },
+  "keywords": []
+}
