@@ -3,7 +3,6 @@
 A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
 
 ## Getting Started
-Install the module with: `npm install addHooks`
 
 ```javascript
 var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
