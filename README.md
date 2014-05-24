@@ -16,7 +16,7 @@ myAwesomeFunction = myAwesomeFunction.addHooks();
 ```
 
 ## Documentation
-[Full API Documentation](http://https://github.com/THEtheChad/addHooks/doc/index.html)
+[Full API Documentation](http://thethechad.github.io/addHooks)
 
 ## Examples
 _(Coming soon)_
