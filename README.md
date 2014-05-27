@@ -15,6 +15,57 @@ var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); };
 myAwesomeFunction = myAwesomeFunction.addHooks();
 ```
 
+## Adding A Hooks
+
+There are currently 4 types of hooks implemented:
+
+- before
+- after
+- modInput
+- modOutput
+
+### func#before
+
+```
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
+
+myAwesomeFunction.before(function(args){
+	
+});
+```
+
+### func#after
+
+```
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
+
+myAwesomeFunction.after(function(args, response){
+	
+});
+```
+
+### func#modInput
+
+```
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
+
+myAwesomeFunction.modInput(function(args, response){
+	
+	return [array];
+});
+```
+
+### func#modOutput
+
+```
+var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); }.addHooks();
+
+myAwesomeFunction.modOutput(function(args, response){
+	
+	return newResponse;
+});
+```
+
 ## Documentation
 [Full API Documentation](http://thethechad.github.io/addHooks)
 
