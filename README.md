@@ -15,7 +15,7 @@ var myAwesomeFunction = function(){ console.log('Hello Freakin\' World!'); };
 myAwesomeFunction = myAwesomeFunction.addHooks();
 ```
 
-## Adding A Hooks
+## Assigning a Hook
 
 There are currently 4 types of hooks implemented:
 
