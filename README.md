@@ -1,6 +1,6 @@
 # Function#addHooks
 
-A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
+A method for the Function prototype that creates 4 hooks for executing actions at various stages of a function's execution.
 
 ## Getting Started
 
