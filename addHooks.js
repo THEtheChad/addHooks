@@ -22,9 +22,8 @@
  * @param  {array|arguments} args - The list of arguments being passed to the function
  * @return {*}
  */
-
 Function.prototype.fastApply = function(context, args){
-	args = (args instanceof Array) ? args : Array.prototype.slice.call(args);
+	args = Array.prototype.slice.call(args);
 
 	/*jshint ignore:start */
 	var l = args.length;
