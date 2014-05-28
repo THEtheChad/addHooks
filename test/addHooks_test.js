@@ -154,7 +154,7 @@ exports['Function#addHooks'] = {
     var ret = func.apply(ctx, args);
     var result;
 
-    function throwErr(){
+    function throwErr() {
       throw new Error();
     }
 
@@ -171,6 +171,87 @@ exports['Function#addHooks'] = {
 
     test.done();
   }
+};
 
-  // TODO: ADD PROPER ERROR HANDLING
+exports['Function#fastApply'] = {
+  setUp: function(done) {
+
+    func = function() {
+      var i = arguments.length, out = 0;
+
+      while(i--){
+        out += arguments[i];
+      }
+
+      return out;
+    };
+
+    done();
+  },
+  'should execute just like apply (0 arguments)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
+  'should execute just like apply (1 argument)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [1];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
+  'should execute just like apply (2 arguments)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [1,2];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
+  'should execute just like apply (3 arguments)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [1,2,3];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
+  'should execute just like apply (4 arguments)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [1,2,3,4];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
+  'should execute just like apply (5 arguments)': function(test) {
+    test.expect(1);
+
+    var context = {a:1};
+    var args = [1,2,3,4,5];
+    var original = func.apply(context, args);
+    var modified = func.fastApply(context, args);
+
+    test.equal(original, modified, 'Original output should match the modified output.');
+    test.done();
+  },
 };
