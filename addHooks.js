@@ -3,7 +3,7 @@
  * @author  THEtheChad
  * @license MIT
  * @version 0.1.0
- * @published 2014-05-23
+ * @published 2014-05-28
  * @fileOverview A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
  */'use strict';
 
@@ -12,6 +12,30 @@
  * @external Function
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function Function}
  */
+
+/**
+ * This method replaces the normal apply
+ * method with a faster version that uses
+ * `call` if there are 3 or less arguments
+ * @function external:Function#fastApply
+ * @param  {object} context - The context in which the function should be run
+ * @param  {array|arguments} args - The list of arguments being passed to the function
+ * @return {*}
+ */
+Function.prototype.fastApply = function(context, args){
+	args = Array.prototype.slice.call(args);
+
+	/*jshint ignore:start */
+	var l = args.length;
+
+	if (l == 0) return this.call(context);
+	if (l == 1) return this.call(context, args[0]);
+	if (l == 2) return this.call(context, args[0], args[1]);
+	if (l == 3) return this.call(context, args[0], args[1], args[2]);
+	/*jshint ignore:end */
+
+	return this.apply(context, args);
+};
 
 /**
  * This method returns a hookable copy of the
@@ -24,7 +48,7 @@ Function.prototype.addHooks = function() {
 
 	/**
 	 * A function that wraps the original function and
- 	 * and includes a hooking api.
+	 * and includes a hooking api.
 	 * @name  external:Function#addHooks~hook
 	 * @class
 	 * @param {...*}
@@ -42,7 +66,7 @@ Function.prototype.addHooks = function() {
 		args = hook.fire('modInput', this, args, args);
 
 		// call the actual function
-		response = self.apply(this, args);
+		response = self.fastApply(this, args);
 
 		/*jshint validthis:true */
 		response = hook.fire('modOutput', this, response, response);
@@ -118,9 +142,9 @@ Function.prototype.addHooks = function() {
 		var actions = hook.actions[type];
 
 		for (var i = 0, il = actions.length; i < il; i++) {
-			try{
+			try {
 				data = actions[i].call(context, args, data);
-			}catch(e){}
+			} catch (e) {}
 		}
 
 		return data;
