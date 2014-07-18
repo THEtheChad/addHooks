@@ -144,6 +144,15 @@ exports['Function#addHooks'] = {
 
     test.done();
   },
+  'should not duplicate a previous addHook action': function(test){
+    test.expect(1);
+
+    var duplicate = hook.addHooks();
+
+    test.equal(duplicate, hook, 'A second addHook call should not modify the function.');
+
+    test.done();
+  },
   'should catch errors in hooks': function(test) {
     test.expect(2);
 

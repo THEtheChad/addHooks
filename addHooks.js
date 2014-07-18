@@ -3,7 +3,7 @@
  * @author  THEtheChad
  * @license MIT
  * @version 0.1.0
- * @published 2014-05-28
+ * @published 2014-07-18
  * @fileOverview A method for the Function prototype that creates 4 hooks for executing actions at various stages of a functions execution.
  */'use strict';
 
@@ -44,6 +44,12 @@ Function.prototype.fastApply = function(context, args){
  * @return {external:Function#addHooks~hook} Function with hook API
  */
 Function.prototype.addHooks = function() {
+	// If this is already a function with hooks,
+	// return the original function
+	if(this.actions){
+		return this;
+	}
+
 	var self = this;
 
 	/**
